@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="container w-50 mt-5">
+        {{ form_start(registrationForm) }}
+            {% if form_errors(registrationForm) %}
+                <div class="alert alert-danger">{{ form_errors(registrationForm) }}</div>
+            {% endif %}
+            {% if form_errors(registrationForm.code) %}
+                <div class="alert alert-danger">{{ form_errors(registrationForm.code) }}</div>
+            {% endif %}
+            {% if form_errors(registrationForm.password) %}
+                <div class="alert alert-danger">{{ form_errors(registrationForm.password) }}</div>
+            {% endif %}
+            <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+            <div class="mt-3">
+                {{ form_label(registrationForm.code, 'Code', {'label_attr': {'class': 'd-block mb-2'}}) }}
+                {{ form_widget(registrationForm.code, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="mt-3">
+                {{ form_label(registrationForm.name, 'Name', {'label_attr': {'class': 'd-block mb-2'}}) }}
+                {{ form_widget(registrationForm.name, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="mt-3">
+                {{ form_label(registrationForm.password, 'Password', {'label_attr': {'class': 'd-block mb-2'}}) }}
+                {{ form_widget(registrationForm.password, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <button class="btn btn-lg btn-primary mt-3" type="submit">
+                Register
+            </button>
+        {{ form_end(registrationForm) }}
+    </div>
+{% endblock %}
