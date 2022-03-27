@@ -3,18 +3,29 @@
 {% block title %}Hello AdminController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="container mt-3">
+        <h1>Hello, here you can create new test templates and publish tests</h1>
+        <div class="card mt-5">
+            <div class="card-body">
+                <h5 class="card-title">Publish test</h5>
+                <p class="card-text">Enter publish data and publish existing test templates as new tests</p>
+                <a href="#" class="btn btn-primary">Publish test</a>
+            </div>
+        </div>
+        <div class="card mt-5">
+            <div class="card-body">
+                <h5 class="card-title">Edit test templates</h5>
+                <p class="card-text">Edit test templates for future tests</p>
+                <a href="#" class="btn btn-primary">Edit test templates</a>
+            </div>
+        </div>
+        <div class="card mt-5">
+            <div class="card-body">
+                <h5 class="card-title">Edit questionare</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Edit questionare</a>
+            </div>
+        </div>
+    </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/var/www/question_manager/src/Controller/AdminController.php'|file_link(0) }}">src/Controller/AdminController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/var/www/question_manager/templates/admin/index.html.twig'|file_link(0) }}">templates/admin/index.html.twig</a></code></li>
-    </ul>
-</div>
 {% endblock %}
