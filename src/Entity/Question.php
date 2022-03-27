@@ -22,14 +22,18 @@ class Question
     private $score;
 
     #[ORM\OneToOne(targetEntity: Option::class, cascade: ['persist', 'remove'])]
-    private $answer_id;
+    private $answer;
 
     #[ORM\OneToMany(mappedBy: 'question_id', targetEntity: Option::class)]
     private $options;
 
+    #[ORM\ManyToMany(targetEntity: QuestionBank::class, mappedBy: 'questions')]
+    private $questionBanks;
+
     public function __construct()
     {
         $this->options = new ArrayCollection();
+        $this->questionBanks = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -61,14 +65,14 @@ class Question
         return $this;
     }
 
-    public function getAnswerId(): ?Option
+    public function getAnswer(): ?Option
     {
-        return $this->answer_id;
+        return $this->answer;
     }
 
-    public function setAnswerId(?Option $answer_id): self
+    public function setAnswerId(?Option $answer): self
     {
-        $this->answer_id = $answer_id;
+        $this->answer = $answer;
 
         return $this;
     }
@@ -98,6 +102,33 @@ class Question
             if ($option->getQuestionId() === $this) {
                 $option->setQuestionId(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, QuestionBank>
+     */
+    public function getQuestionBanks(): Collection
+    {
+        return $this->questionBanks;
+    }
+
+    public function addQuestionBank(QuestionBank $questionBank): self
+    {
+        if (!$this->questionBanks->contains($questionBank)) {
+            $this->questionBanks[] = $questionBank;
+            $questionBank->addQuestion($this);
+        }
+
+        return $this;
+    }
+
+    public function removeQuestionBank(QuestionBank $questionBank): self
+    {
+        if ($this->questionBanks->removeElement($questionBank)) {
+            $questionBank->removeQuestion($this);
         }
 
         return $this;
