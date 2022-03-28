@@ -2,30 +2,30 @@
 
 namespace App\Repository;
 
-use App\Entity\QuestionTemplate;
+use App\Entity\TestTemplate;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method QuestionTemplate|null find($id, $lockMode = null, $lockVersion = null)
- * @method QuestionTemplate|null findOneBy(array $criteria, array $orderBy = null)
- * @method QuestionTemplate[]    findAll()
- * @method QuestionTemplate[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method TestTemplate|null find($id, $lockMode = null, $lockVersion = null)
+ * @method TestTemplate|null findOneBy(array $criteria, array $orderBy = null)
+ * @method TestTemplate[]    findAll()
+ * @method TestTemplate[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class QuestionTemplateRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, QuestionTemplate::class);
+        parent::__construct($registry, TestTemplate::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(QuestionTemplate $entity, bool $flush = true): void
+    public function add(TestTemplate $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -37,7 +37,7 @@ class QuestionTemplateRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(QuestionTemplate $entity, bool $flush = true): void
+    public function remove(TestTemplate $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -46,7 +46,7 @@ class QuestionTemplateRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return QuestionTemplate[] Returns an array of QuestionTemplate objects
+    //  * @return TestTemplate[] Returns an array of TestTemplate objects
     //  */
     /*
     public function findByExampleField($value)
@@ -63,7 +63,7 @@ class QuestionTemplateRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?QuestionTemplate
+    public function findOneBySomeField($value): ?TestTemplate
     {
         return $this->createQueryBuilder('q')
             ->andWhere('q.exampleField = :val')

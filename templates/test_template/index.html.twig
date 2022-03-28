@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TestTemplateController!{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h2>Preview and create tests</h2>
+        <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#add-modal">New test template</button>
+        {% if test_templates is empty %}
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h5 class="card-title">No test templates created</h5>
+                </div>
+            </div>
+        {% endif %}
+        {% for test_template in test_templates %}
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h5 class="card-title">Preview tests</h5>
+                    <p class="card-text">Preview tests, create new ones</p>
+                    <a href="#" class="btn btn-primary">Preview test</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% include 'test_template/test_template_add.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('test_template') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('test_template') }}
+{% endblock %}

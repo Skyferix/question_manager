@@ -6,7 +6,7 @@ use App\Repository\QuestionTemplateRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: QuestionTemplateRepository::class)]
-class QuestionTemplate
+class TestTemplate
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
