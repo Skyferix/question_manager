@@ -25,13 +25,3 @@
     </div>
     {% include 'test/test_add.html.twig' %}
 {% endblock %}
-
-{% block stylesheets %}
-    {{ parent() }}
-    {{ encore_entry_link_tags('test') }}
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    {{ encore_entry_script_tags('test') }}
-{% endblock %}

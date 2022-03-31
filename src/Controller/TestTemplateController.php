@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Question;
 use App\Entity\QuestionBank;
 use App\Entity\TestTemplate;
 use Doctrine\Persistence\ManagerRegistry;
@@ -17,6 +18,7 @@ class TestTemplateController extends AbstractController
     {
         $test_templates = $doctrine->getRepository(TestTemplate::class)->findAll();
         $question_banks = $doctrine->getRepository(QuestionBank::class)->findAll();
+        $doctrine->getRepository(Question::class)->findAll();
         return $this->render('test_template/index.html.twig', [
             'test_templates' => $test_templates,
             'question_banks' => $question_banks,

@@ -24,7 +24,7 @@ class Question
     #[ORM\OneToOne(targetEntity: Option::class, cascade: ['persist', 'remove'])]
     private $answer;
 
-    #[ORM\OneToMany(mappedBy: 'question_id', targetEntity: Option::class)]
+    #[ORM\OneToMany(mappedBy: 'question', targetEntity: Option::class)]
     private $options;
 
     #[ORM\ManyToMany(targetEntity: QuestionBank::class, mappedBy: 'questions')]

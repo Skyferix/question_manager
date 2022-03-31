@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Test;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
@@ -13,6 +14,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Test|null findOneBy(array $criteria, array $orderBy = null)
  * @method Test[]    findAll()
  * @method Test[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Test[]    findByOwner(User $user)
  */
 class TestRepository extends ServiceEntityRepository
 {

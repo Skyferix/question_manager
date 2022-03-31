@@ -22,6 +22,7 @@ Encore
      */
     .addEntry('app', './assets/combined_js/app.js')
     .addEntry('test_template', './assets/combined_js/test_template.js')
+    .addEntry('question_bank', './assets/combined_js/question_bank.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')

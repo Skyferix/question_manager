@@ -14,6 +14,3 @@ import '../bootstrap';
 const $ = require('jquery');
 require('bootstrap');
 global.$ = global.jQuery = $;
-$(document).ready(function() {
-    $('[data-toggle="popover"]').popover();
-});

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h2>Preview and create question banks</h2>
+        <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#add-modal">New test template</button>
+        {% if question_banks is empty %}
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h5 class="card-title">No test question banks created</h5>
+                </div>
+            </div>
+        {% endif %}
+        {% for question_bank in question_banks %}
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h5 class="card-title">{{ question_bank.title }}</h5>
+                    <p class="card-text">{{ question_bank.description }}</p>
+                    <a href="{{ question_bank.id }}" class="btn btn-primary">Edit / add questions</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% include 'question_bank/add.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('question_bank') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('question_bank') }}
+{% endblock %}

@@ -11,14 +11,14 @@ class Test
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private int $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $title;
+    private string $title;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'tests')]
     #[ORM\JoinColumn(nullable: false)]
-    private $owner;
+    private User $owner;
 
     public function getId(): ?int
     {
@@ -37,7 +37,7 @@ class Test
         return $this;
     }
 
-    public function getOwner(): ?User
+    public function getOwner(): User
     {
         return $this->owner;
     }
